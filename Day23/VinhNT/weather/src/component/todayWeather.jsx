@@ -13,24 +13,24 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '25px',
     overflow: 'auto',
     marginBottom: theme.spacing(2),
-    alignSelf : 'center'
+    alignSelf: 'center',
   },
   header: {
     textAlign: 'center',
   },
 
   media: {
-    width: "64px",
-    height: "64px",
-    marginLeft:theme.spacing(2)
+    width: '64px',
+    height: '64px',
+    marginLeft: theme.spacing(2),
   },
   leftSide: {
     display: 'flex',
     alignItems: 'center',
   },
-  mainDetails:{
-    alignSelf: 'end'
-  }
+  mainDetails: {
+    alignSelf: 'end',
+  },
 }));
 
 export default function TodayWeather(props) {
@@ -61,12 +61,16 @@ export default function TodayWeather(props) {
               title="Today weather"
             />
             <Container className={classes.mainDetails}>
-              <Typography gutterBottom>{props.data[0].day.avgtemp_c} °C</Typography>
+              <Typography gutterBottom>
+                {props.data[0].day.avgtemp_c} °C
+              </Typography>
               <Typography>{props.data[0].day.condition.text}</Typography>
             </Container>
           </Grid>
           <Grid item xs={5}>
-            <Typography gutterBottom>Wind: {props.data[0].day.maxwind_kph} kph</Typography>
+            <Typography gutterBottom>
+              Wind: {props.data[0].day.maxwind_kph} kph
+            </Typography>
             <Typography gutterBottom>
               Precip: {props.data[0].day.totalprecip_mm} mm
             </Typography>

@@ -4,18 +4,17 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    overflow: "auto"
+    overflow: 'auto',
   },
-  label:{
-    color : '#323934'
-    
+  label: {
+    color: '#323934',
   },
-  item:{
-    display :"flex",
-    flexDirection: "column",
-    alignItems: "center",
-    width : "50%",
-    borderRadius : "25px" 
+  item: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '50%',
+    borderRadius: '25px',
   },
   media: {
     width: '64px',
@@ -52,16 +51,20 @@ export default function ThreeDaysWeather(props) {
   const classes = useStyles();
   return (
     <>
-      <Typography gutterBottom className={classes.label} variant='h5' >Three days forecast </Typography>
+      <Typography gutterBottom className={classes.label} variant="h5">
+        Three days forecast{' '}
+      </Typography>
       <Grid container className={classes.root} spacing={4}>
         {props.data.map((e) => {
           return (
             <Grid className={classes.item} key={e.date} item sm={4}>
-              <Card  className={classes.item}>
+              <Card className={classes.item}>
                 <Typography variant="h5" gutterBottom>
                   {getTextDay(formatDay(e.date).getDay())}
                 </Typography>
-                <Typography variant="body1" gutterBottom>{formatDate(e.date)}</Typography>
+                <Typography variant="body1" gutterBottom>
+                  {formatDate(e.date)}
+                </Typography>
                 <CardMedia
                   className={classes.media}
                   image={e.day.condition.icon}

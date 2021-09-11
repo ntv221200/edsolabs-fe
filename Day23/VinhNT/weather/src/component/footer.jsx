@@ -15,8 +15,7 @@ import image from '../assest/IMG_20210911_122839.jpg';
 const useStyles = makeStyles((theme) => ({
   footer: {
     marginTop: theme.spacing(3),
-    color : '#323934'
-
+    color: '#323934',
   },
   paper: {
     position: 'absolute',
@@ -67,7 +66,7 @@ export default function Footer(props) {
             src={image}
             variant="square"
             className={classes.avatar}
-            sizes = "100px"
+            sizes="100px"
           />
         </Grid>
         <Grid item xs={6}>

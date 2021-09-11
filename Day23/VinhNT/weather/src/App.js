@@ -4,7 +4,7 @@
 import './App.css';
 import image from './assest/paper-1074131_1920.jpg'
 import { CssBaseline, Container } from '@material-ui/core';
-import Search_bar from './component/search.jsx';
+import SearchBar from './component/search.jsx';
 import Footer from './component/footer.jsx';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
@@ -30,7 +30,18 @@ const env = {
   base: 'http://api.weatherapi.com/v1/',
   key: '065ab399ee1445c092d42238211009',
 };
+function convertVietnamese(str) {
+  str= str.toLowerCase();
+  str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+  str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+  str= str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+  str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+  str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+  str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+  str= str.replace(/đ/g,"d");
 
+  return str;
+}
 function App() {
   const classes = useStyles();
   const [text, setText] = useState('');
@@ -45,10 +56,11 @@ function App() {
   }
   async function fetchAPI() {
     try {
+      const newText = convertVietnamese(text)
       setLoading(2);
       const requestURL = env.base;
       const response = await fetch(
-        `${requestURL}forecast.json?key=${env.key}&q=${text}&days=3&aqi=no&alerts=no`
+        `${requestURL}forecast.json?key=${env.key}&q=${newText}&days=3&aqi=no&alerts=no`
       );
       const responseJSON = await response.json();
       const newWeatherData = responseJSON.forecast.forecastday;
@@ -66,7 +78,7 @@ function App() {
       <div className={classes.bg} >
 
       <Container maxWidth="md"  className={classes.root}>
-        <Search_bar
+        <SearchBar
           text={text}
           onSubmit={handleSubmit}
           onChange={handleChange}
