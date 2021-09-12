@@ -4,14 +4,14 @@
 import './App.css';
 import image from './assest/paper-1074131_1920.jpg'
 import { CssBaseline, Container } from '@material-ui/core';
-import SearchBar from './component/search.jsx';
-import Footer from './component/footer.jsx';
+import SearchBar from './component/SearchBar.jsx';
+import Footer from './component/Footer.jsx';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
-import Progress from './component/progress.jsx';
-import TodayWeather from './component/todayWeather.jsx';
-import ThreeDaysWeather from './component/threeDaysWeather.jsx';
-import NotFound from './component/notfound.jsx';
+import Progress from './component/Progress.jsx';
+import TodayWeather from './component/TodayWeather.jsx';
+import ThreeDaysWeather from './component/ThreeDaysWeather.jsx';
+import NotFound from './component/NotFound.jsx';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',

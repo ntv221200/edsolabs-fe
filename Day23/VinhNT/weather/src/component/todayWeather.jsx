@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   media: {
-    width: '64px',
+    maxWidth: '64px',
+    width : '100%',
     height: '64px',
     marginLeft: theme.spacing(2),
   },

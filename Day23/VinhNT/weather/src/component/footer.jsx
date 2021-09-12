@@ -10,6 +10,7 @@ import {
   Card,
   CardHeader,
   CardContent,
+  Button,
 } from '@material-ui/core';
 import image from '../assest/IMG_20210911_122839.jpg';
 const useStyles = makeStyles((theme) => ({
@@ -25,13 +26,17 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-  // papercontent:{
-  //   display: 'flex',
-  // },
-  avatar: {
-    width: theme.spacing(25),
-    height: theme.spacing(25),
+  papercontent:{
+    alignItems: 'center',
   },
+  avatar: {
+    maxWidth: theme.spacing(25),
+    height: theme.spacing(25),
+    width : '100%'
+  },
+  fact:{
+    padding: theme.spacing(1)
+  }
 }));
 function getModalStyle() {
   const top = 50;
@@ -73,7 +78,7 @@ export default function Footer(props) {
           <Card>
             <CardHeader>Something about me</CardHeader>
             <CardContent>
-              <ul>
+              <ul className={classes.fact}>
                 <li>Full name: Nguyễn Trọng Vĩnh</li>
                 <li>DoB: 22/12/2000</li>
                 <li>Hobby: chơi game, đi ún cafe</li>
@@ -83,6 +88,7 @@ export default function Footer(props) {
           </Card>
         </Grid>
       </Grid>
+      <Button variant='text' fullWidth color='secondary' onClick={handleClose}>Close</Button>
     </div>
   );
   return (
