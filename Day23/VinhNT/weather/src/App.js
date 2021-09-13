@@ -29,7 +29,7 @@ const env = {
   appName: process.env.REACT_APP_APPNAME,
   author: process.env.REACT_APP_AUTHOR,
   base: process.env.REACT_APP_BASE,
-  key: process.env.REACT_APP_KEY,
+  key: '065ab399ee1445c092d42238211009ss',
 };
 function convertVietnamese(str) {
   str= str.toLowerCase();
