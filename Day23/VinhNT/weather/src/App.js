@@ -12,6 +12,7 @@ import Progress from './component/Progress.jsx';
 import TodayWeather from './component/TodayWeather.jsx';
 import ThreeDaysWeather from './component/ThreeDaysWeather.jsx';
 import NotFound from './component/NotFound.jsx';
+require('dotenv').config();
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -25,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const env = {
-  appName: 'Edsolabs 5-Day Forecast',
-  author: 'VinhNT',
-  base: 'http://api.weatherapi.com/v1/',
-  key: '065ab399ee1445c092d42238211009',
+  appName: process.env.REACT_APP_APPNAME,
+  author: process.env.REACT_APP_AUTHOR,
+  base: process.env.REACT_APP_BASE,
+  key: process.env.REACT_APP_KEY,
 };
 function convertVietnamese(str) {
   str= str.toLowerCase();
