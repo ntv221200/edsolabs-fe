@@ -29,24 +29,8 @@ const formatDay = function (date) {
   let dates = date.split('-');
   return new Date(dates[1] + ' ' + dates[2] + ', ' + dates[0]);
 };
-const getTextDay = function (day) {
-  switch (day) {
-    case 1:
-      return 'Mon';
-    case 2:
-      return 'Tue';
-    case 3:
-      return 'Wed';
-    case 4:
-      return 'Thu';
-    case 5:
-      return 'Fri';
-    case 6:
-      return 'Sat';
-    default:
-      return 'Sun';
-  }
-};
+
+const textDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 export default function ThreeDaysWeather(props) {
   const classes = useStyles();
   return (
@@ -60,7 +44,7 @@ export default function ThreeDaysWeather(props) {
             <Grid className={classes.item} key={e.date} item sm={4}>
               <Card className={classes.item}>
                 <Typography variant="h5" gutterBottom>
-                  {getTextDay(formatDay(e.date).getDay())}
+                  {textDay[formatDay(e.date).getDay()]}
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                   {formatDate(e.date)}
