@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
 const env = {
   appName: process.env.REACT_APP_APPNAME,
   author: process.env.REACT_APP_AUTHOR,
-  base: process.env.REACT_APP_BASE,
-  key: '065ab399ee1445c092d42238211009ss',
+  base: 'http://api.weatherapi.com/v1/',
+  key: '065ab399ee1445c092d42238211009',
 };
 function convertVietnamese(str) {
   str= str.toLowerCase();
@@ -54,6 +54,7 @@ function App() {
   }
   function handleSubmit() {
     fetchAPI();
+    console.log(weatherData)
   }
   async function fetchAPI() {
     try {
