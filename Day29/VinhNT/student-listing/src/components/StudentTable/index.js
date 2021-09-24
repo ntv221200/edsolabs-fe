@@ -21,7 +21,6 @@ export default function StudentTable(props) {
   const classes = useStyles()
 
   const [stuNum, setStuNum] = useState(5)
-  // const [newArr, setNewArr] = useState([])
   const handleStuNum = () => {
     if (stuNum < props.student.length) {
       setStuNum(stuNum + 5)
@@ -46,7 +45,6 @@ export default function StudentTable(props) {
     newArr = props.student
       .filter((e) => e.full_name.toLowerCase().includes(props.name))
       .filter((o) => o.gender === props.gender)
-    console.log(newArr)
   }
   if (props.name !== undefined && props.age !== undefined) {
     newArr = props.student
